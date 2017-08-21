@@ -22,4 +22,3 @@ chess.initBoard = function () {
 
     initPieces();
 };
-

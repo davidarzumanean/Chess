@@ -9,5 +9,4 @@ var chess = {
     },
     chessBoard: {},
     board: []
-
 };
