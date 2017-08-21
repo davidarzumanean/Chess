@@ -17,7 +17,7 @@ function Knight(color, coords) {
                 }
                 return {success: true}
             }
-        } else  if (dropCoords.y === currentCoords.y + 2 || dropCoords.y === currentCoords.y - 1) {
+        } else  if (dropCoords.y === currentCoords.y + 2 || dropCoords.y === currentCoords.y - 2) {
             xCoordSlip = Math.abs(xCoordIndexCoordination[currentCoords.x] - xCoordIndexCoordination[dropCoords.x]);
             if (xCoordSlip === 1) {
                 if(chess.board[dropCoords.y][dropCoords.x] !== null) {
