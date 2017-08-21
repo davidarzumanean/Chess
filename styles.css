@@ -1,0 +1,100 @@
+.board {
+    border: 10px solid;
+    margin: 0 auto;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-image: url(img/black-wood.jpg) 100;
+    position: relative;
+}
+
+.board td {
+    width: 80px;
+    height: 80px;
+    background-image: url(img/white-wood.jpg);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.board tr:nth-child(2n+1) td:nth-child(2n+2) {
+    background-image: url(img/black-wood.jpg);
+}
+
+.board tr:nth-child(2n+2) td:nth-child(2n+1) {
+    background-image: url(img/black-wood.jpg);
+}
+
+.board {
+    counter-reset: row 8;
+}
+.board td:first-child:before {
+    content: counter(row);
+    counter-increment: row -1;
+    position: absolute;
+    left: -25px;
+    top: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.board tr:last-child {
+    counter-reset: cell;
+}
+.board tr:last-child td:after {
+    content: counter(cell, lower-alpha);
+    counter-increment: cell;
+    position: absolute;
+    bottom: -35px;
+    left: 35px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.piece {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.white-pawn {
+    background-image: url(img/pieces/white-pawn.png);
+}
+.black-pawn {
+    background-image: url(img/pieces/black-pawn.png);
+}
+
+.white-rook {
+    background-image: url(img/pieces/white-rook.png);
+}
+.black-rook {
+    background-image: url(img/pieces/black-rook.png);
+}
+
+.white-bishop {
+    background-image: url(img/pieces/white-bishop.png);
+}
+.black-bishop {
+    background-image: url(img/pieces/black-bishop.png);
+}
+
+.white-knight {
+    background-image: url(img/pieces/white-knight.png);
+}
+.black-knight {
+    background-image: url(img/pieces/black-knight.png);
+}
+
+.white-queen {
+    background-image: url(img/pieces/white-queen.png);
+}
+.black-queen {
+    background-image: url(img/pieces/black-queen.png);
+}
+
+.white-king {
+background-image: url(img/pieces/white-king.png);
+}
+.black-king {
+background-image: url(img/pieces/black-king.png);
+}
