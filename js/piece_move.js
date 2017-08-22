@@ -69,7 +69,6 @@ Piece.DragManager = new function () {
     }
 
     function checkDroppable(event) {
-
         function prepareForEating (dropCell) {
             dropCell.removeChild(dropTarget);
             dropCellPieceObj = null;
@@ -91,10 +90,10 @@ Piece.DragManager = new function () {
             if (dragObject.draggedPieceObj.color === dropCellPieceObj.color) {
                 resetMove();
                 return;
+
             } else if (dragObject.draggedPieceObj.color !== dropCellPieceObj.color) {
                 isValidMove = dragObject.draggedPieceObj.validateMove(dropCoordsArr);
 
-                //TODO review this part, it seems wrong
                 if (isValidMove.success === true) {
                     if(isValidMove.eat === true) {
                         prepareForEating(dropCell);
@@ -106,12 +105,11 @@ Piece.DragManager = new function () {
                     return;
                 }
             }
+
         } else if (!dropTarget.classList.contains('f_piece') && !dropTarget.classList.contains('f_board-cell')) {
             resetMove();
             return;
         }
-
-        //TODO CALL VALIDATION FUNCTION THEN IMPLEMENT EAT
 
         var dropCellCoord = dropTarget.getAttribute('id');
         var dropCellCoordsArr = splitCoordinates(dropCellCoord);
@@ -125,7 +123,6 @@ Piece.DragManager = new function () {
             var message = "This move is not valid!";
             resetMove(message);
         }
-
     }
 
     this.onDragEnd = function (dragObject, dropElem) {
@@ -134,7 +131,6 @@ Piece.DragManager = new function () {
 
         chess.board[coords.y][coords.x] = null;
 
-        //TODO depending on change in line 97 fix this part
         var targetCoord = splitCoordinates(dropElem.id);
 
         chess.board[targetCoord.y][targetCoord.x] = pieceInCell;
@@ -146,14 +142,13 @@ Piece.DragManager = new function () {
 
     function resetMove (message) {
         dragObject.draggedPieceFigure.removeAttribute('style');
-        //TODO SHOW SOME ERROR MESSAGE
+
         if (message) {
             alert(message);
         } else {
             alert("can't do this action")
         }
     }
-
 }();
 
 var xCoordArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
