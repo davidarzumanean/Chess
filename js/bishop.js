@@ -14,9 +14,12 @@ function Bishop(color, coords) {
             var xCoord = xCoordIndexCoordination[currentCoords.x];
             var yCoord = currentCoords.y;
             var xCoordCharIndex;
+            var dropCoordXIndex = xCoordIndexCoordination[dropCoords.x];
+            var dropCellContainsPiece = chess.board[dropCoords.y][dropCoords.x];
+
             if (xCoordIndexCoordination[currentCoords.x] - xCoordIndexCoordination[dropCoords.x] > 0) {
                 if (dropCoords.y - currentCoords.y > 0) {
-                    while (xCoordArr[xCoord] !== dropCoords.x + 1 && yCoord !== dropCoords.y - 1) {
+                    while (xCoordArr[xCoord] !== xCoordArr[dropCoordXIndex + 1] && yCoord !== dropCoords.y - 1) {
                         xCoord--;
                         yCoord++;
                         xCoordCharIndex = xCoordArr[xCoord];
@@ -24,16 +27,52 @@ function Bishop(color, coords) {
                             return {success: false};
                         }
                     }
+                    if (dropCellContainsPiece) {
+                        return {success: true, eat: true};
+                    }
                     return {success: true};
 
                 } else if (dropCoords.y - currentCoords.y < 0) {
-                    while (xCoordArr[xCoord] !== dropCoords.x + 1 && yCoord !== dropCoords.y + 1) {
+                    while (xCoordArr[xCoord] !== xCoordArr[dropCoordXIndex + 1] && yCoord !== dropCoords.y + 1) {
                         xCoord--;
                         yCoord--;
                         xCoordCharIndex = xCoordArr[xCoord];
-                        if (chess.board[yCoord][xCoordCharIndex] === null) {
+                        if (chess.board[yCoord][xCoordCharIndex] !== null) {
                             return {success: false};
                         }
+                    }
+                    if (dropCellContainsPiece) {
+                        return {success: true, eat: true};
+                    }
+                    return {success: true};
+                }
+
+            } else if (xCoordIndexCoordination[currentCoords.x] - xCoordIndexCoordination[dropCoords.x] < 0) {
+                if (dropCoords.y - currentCoords.y > 0) {
+                    while (xCoordArr[xCoord] !== xCoordArr[dropCoordXIndex - 1] && yCoord !== dropCoords.y - 1) {
+                        xCoord++;
+                        yCoord++;
+                        xCoordCharIndex = xCoordArr[xCoord];
+                        if (chess.board[yCoord][xCoordCharIndex] !== null) {
+                            return {success: false};
+                        }
+                    }
+                    if (dropCellContainsPiece) {
+                        return {success: true, eat: true};
+                    }
+                    return {success: true};
+
+                } else if (dropCoords.y - currentCoords.y < 0) {
+                    while (xCoordArr[xCoord] !== xCoordArr[dropCoordXIndex - 1] && yCoord !== dropCoords.y + 1) {
+                        xCoord++;
+                        yCoord--;
+                        xCoordCharIndex = xCoordArr[xCoord];
+                        if (chess.board[yCoord][xCoordCharIndex] !== null) {
+                            return {success: false};
+                        }
+                    }
+                    if (dropCellContainsPiece) {
+                        return {success: true, eat: true};
                     }
                     return {success: true};
                 }
