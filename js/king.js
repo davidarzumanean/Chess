@@ -1,14 +1,14 @@
-function King(color, coords) {
-    Piece.call(this, color, coords);
-}
-
 King.prototype = new Piece();
 King.prototype.constructor = King;
 
-King.validateMove = function (dropCoords) {
-    var currentCoords = this.coords;
-    var pieceColor = this.color;
+function King(color, coords) {
+    Piece.call(this, color, coords);
 
-   
+    this.validateMove = function (dropCoords) {
+        var currentCoordsArr = this.coords;
+        var currentCoords = {};
+        currentCoords.x = currentCoordsArr[0];
+        currentCoords.y = currentCoordsArr[1];
 
-};
+    };
+}

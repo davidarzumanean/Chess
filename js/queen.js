@@ -6,7 +6,6 @@ function Queen(color, coords) {
 
     this.validateMove = function (dropCoords) {
         var currentCoordsArr = this.coords;
-        var pieceColor = this.color;
         var currentCoords = {};
         currentCoords.x = currentCoordsArr[0];
         currentCoords.y = currentCoordsArr[1];
