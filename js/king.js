@@ -12,13 +12,15 @@ function King(color, coords) {
 
         var currentXCoordIndex = xCoordIndexCoordination[currentCoords.x];
         var dropXCoordIndex = xCoordIndexCoordination[dropCoords.x];
+        var xCoordsAbsDifference = Math.abs(dropXCoordIndex - currentXCoordIndex);
+        var yCoordsAbsDifference = Math.abs(dropCoords.y - currentCoords.y);
 
-        if (dropCoords.y === currentCoords.y + 1 || dropCoords.y === currentCoords.y - 1) {
+        if ((dropCoords.y === currentCoords.y + 1 || dropCoords.y === currentCoords.y - 1 ) && xCoordsAbsDifference <= 1) {
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};
             }
             return {success: true};
-        } else if (dropXCoordIndex === currentXCoordIndex + 1 || dropXCoordIndex === currentXCoordIndex - 1){
+        } else if ((dropXCoordIndex === currentXCoordIndex + 1 || dropXCoordIndex === currentXCoordIndex - 1) && yCoordsAbsDifference <= 1){
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};
             }
@@ -26,5 +28,10 @@ function King(color, coords) {
         }
 
         return {success: false}
+        
     };
+    
+    validMoveCoordinates = function () {
+        
+    }
 }
