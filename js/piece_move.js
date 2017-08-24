@@ -1,15 +1,3 @@
-chess.checkPlayersTurn = {
-    pieceColorArr: ['white', 'black'],
-    turnIndex: 0
-}
-
-chess.checkPlayersTurn.colorTurn = chess.checkPlayersTurn.pieceColorArr[chess.checkPlayersTurn.turnIndex];
-
-chess.checkPlayersTurn.changeTheTurn = function () {
-    chess.checkPlayersTurn.turnIndex = (chess.checkPlayersTurn.turnIndex + 1) % 2;
-    chess.checkPlayersTurn.colorTurn = chess.checkPlayersTurn.pieceColorArr[chess.checkPlayersTurn.turnIndex];
-}
-
 Piece.DragManager = new function () {
 
     var dragObject = {};
@@ -112,6 +100,7 @@ Piece.DragManager = new function () {
                 isValidMove = dragObject.draggedPieceObj.validateMove(dropCoordsArr);
 
                 if (isValidMove.success === true) {
+                    chess.isCheck();
                     chess.checkPlayersTurn.changeTheTurn();
                     if(isValidMove.eat === true) {
                         prepareForEating(dropCell);
@@ -135,6 +124,7 @@ Piece.DragManager = new function () {
         isValidMove = dragObject.draggedPieceObj.validateMove(dropCellCoordsArr);
 
         if (isValidMove && isValidMove.success === true) {
+            chess.isCheck();
             chess.checkPlayersTurn.changeTheTurn();
             return dropTarget;
 

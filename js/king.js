@@ -16,11 +16,16 @@ function King(color, coords) {
         var yCoordsAbsDifference = Math.abs(dropCoords.y - currentCoords.y);
 
         if ((dropCoords.y === currentCoords.y + 1 || dropCoords.y === currentCoords.y - 1 ) && xCoordsAbsDifference <= 1) {
+            kingsPosition[this.color] = {x: dropCoords.x, y: dropCoords.y};
+
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};
             }
             return {success: true};
+
         } else if ((dropXCoordIndex === currentXCoordIndex + 1 || dropXCoordIndex === currentXCoordIndex - 1) && yCoordsAbsDifference <= 1){
+            kingsPosition[this.color] = {x: dropCoords.x, y: dropCoords.y};
+
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};
             }
@@ -30,4 +35,15 @@ function King(color, coords) {
         return {success: false}
         
     };
+}
+
+var kingsPosition = {
+    white: {
+        x: 'e',
+        y: 0
+    },
+    black: {
+        x: 'e',
+        y: 7
+    }
 }
