@@ -2,7 +2,7 @@ chess.initBoard = function () {
     var table = document.createElement("table");
     table.setAttribute("class", "board");
     table.setAttribute("id", "board");
-    document.body.appendChild(table);
+    document.getElementById('boardContainer').appendChild(table);
 
     chess.chessBoard = table;
 

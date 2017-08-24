@@ -1,3 +1,9 @@
+.board-container {
+    position: relative;
+    max-width: 660px;
+    margin: 0 auto;
+}
+
 .board {
     border: 10px solid;
     margin: 0 auto;

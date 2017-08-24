@@ -57,10 +57,11 @@ function drawPieces() {
 
     for( var i = 0; i < 8; i++){
         for(var cell in chess.board[i]){
-            if(chess.board[i][cell]){
-                var pos = chess.board[i][cell].coords[0] + '-' + chess.board[i][cell].coords[1];
-                var rank = chess.board[i][cell].constructor.name.toLowerCase();
-                var color = chess.board[i][cell].color;
+            var pieceObj = chess.board[i][cell];
+            if(pieceObj){
+                var pos = pieceObj.coords[0] + '-' + pieceObj.coords[1];
+                var rank = pieceObj.constructor.name.toLowerCase();
+                var color = pieceObj.color;
 
                 className = color + '-' + rank;
                 chessPiece.classList.add(className);
