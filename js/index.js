@@ -5,7 +5,7 @@ window.onload = function () {
 var chess = {
 
     init : function() {
-        this.initBoard();
+        chess.initBoard();
     },
     chessBoard: {},
     board: []

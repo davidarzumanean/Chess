@@ -5,7 +5,7 @@ function Piece(color, coords) {
     };
 }
 
-function initPieces(){
+chess.initPieces = function(){
     (function initPawns() {
         for(var cell in chess.board[1]){
             chess.board[1][cell] = new Pawn('white', [cell ,1]);

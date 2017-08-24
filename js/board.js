@@ -20,5 +20,5 @@ chess.initBoard = function () {
         }
     }
 
-    initPieces();
+    chess.initPieces();
 };

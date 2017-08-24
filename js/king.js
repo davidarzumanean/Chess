@@ -30,8 +30,4 @@ function King(color, coords) {
         return {success: false}
         
     };
-    
-    validMoveCoordinates = function () {
-        
-    }
 }
