@@ -1,6 +1,3 @@
-King.prototype = new Piece();
-King.prototype.constructor = King;
-
 function King(color, coords) {
     Piece.call(this, color, coords);
 

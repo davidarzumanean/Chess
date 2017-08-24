@@ -59,6 +59,3 @@ function Pawn(color, coords) {
         return {success: false};
     }
 }
-
-Pawn.prototype = new Piece();
-Pawn.prototype.constructor = Pawn;

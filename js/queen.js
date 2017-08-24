@@ -1,6 +1,3 @@
-Queen.prototype = new Piece();
-Queen.prototype.constructor = Queen;
-
 function Queen(color, coords) {
     Piece.call(this, color, coords);
 

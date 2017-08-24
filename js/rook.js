@@ -58,6 +58,3 @@ function Rook(color, coords) {
         return {success: false};
     }
 }
-
-Rook.prototype = new Piece();
-Rook.prototype.constructor = Rook;

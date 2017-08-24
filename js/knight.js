@@ -29,6 +29,3 @@ function Knight(color, coords) {
         return {success: false}
     }
 }
-
-Knight.prototype = new Piece();
-Knight.prototype.constructor = Knight;

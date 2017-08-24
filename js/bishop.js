@@ -1,6 +1,3 @@
-Bishop.prototype = new Piece();
-Bishop.prototype.constructor = Bishop;
-
 function Bishop(color, coords) {
     Piece.call(this, color, coords);
 
