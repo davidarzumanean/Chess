@@ -2,7 +2,7 @@ chess.isCheck = function () {
     var reverseColor = {
         black: 'white',
         white: 'black'
-    }
+    };
     for (var i = 7; i >= 0; i--) {
         for (var xCoord in chess.board[i]) {
             if (chess.board[i][xCoord] !== null) {
@@ -14,13 +14,10 @@ chess.isCheck = function () {
                 if (check.success === true) {
                     alert(thisPiece.color + ' checked');
                 }
-
-            } else {
-                continue;
             }
         }
     }
-}
+};
 
 chess.isMate = function () {
     var whiteKingCoors = kingsPosition.white;
@@ -35,4 +32,4 @@ chess.isMate = function () {
         alert('White Won!');
         location.reload();
     }
-}
+};
