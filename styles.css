@@ -1,6 +1,6 @@
 .board-container {
     position: relative;
-    max-width: 660px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
@@ -61,6 +61,12 @@
     height: 80px;
     background-size: contain;
     cursor: pointer;
+}
+
+.convert-pieces-container {
+    position: absolute;
+    left: 100%;
+    top: 0;
 }
 
 .white-pawn {

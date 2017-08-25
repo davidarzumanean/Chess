@@ -12,7 +12,7 @@ chess.isCheck = function () {
                 var check = thisPiece.validateMove(kingsPosition[enemyColor]);
 
                 if (check.success === true) {
-                    console.log(thisPiece.color + ' checked');
+                    alert(thisPiece.color + ' checked');
                 }
 
             } else {
