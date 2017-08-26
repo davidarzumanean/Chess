@@ -139,8 +139,9 @@ Piece.DragManager = new function () {
         var pieceInCell = chess.board[coords.y][coords.x];
         var targetCoord = splitCoordinates(dropElem.id);
 
-        if(pieceInCell instanceof Pawn && targetCoord.y === 7) {
-            chess.convertPawn(pieceInCell);
+        if(pieceInCell instanceof Pawn && (targetCoord.y === 7 || targetCoord.y === 0)) {
+            chess.convertPawn(pieceInCell, targetCoord.x, targetCoord.y);
+            return;
         }
 
         chess.board[coords.y][coords.x] = null;
@@ -153,7 +154,7 @@ Piece.DragManager = new function () {
 
         chess.isCheck();
         chess.isMate();
-    };
+    }
 
     function resetMove () {
         dragObject.draggedPieceFigure.removeAttribute('style');

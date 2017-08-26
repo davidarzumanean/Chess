@@ -48,7 +48,7 @@ chess.initPieces = function(){
     }());
 
     drawPieces();
-}
+};
 
 function drawPieces() {
     var chessPiece = document.createElement('div');
