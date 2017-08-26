@@ -7,7 +7,7 @@ Piece.DragManager = new function () {
     document.onmouseup = onMouseUp;
 
     function onMouseDown(e) {
-        if(e.which === 1) {
+        if (e.which === 1) {
             var draggedPiece = e.target.closest('.f_piece');
             if (!draggedPiece) {
                 return;
@@ -67,17 +67,16 @@ Piece.DragManager = new function () {
             onDragEnd(dragObject, dropElem);
         } else {
             resetMove();
-            return;
         }
     }
 
     function checkDroppable(event) {
-        function prepareForEating (dropCell) {
+        function prepareForEating(dropCell) {
             dropCell.removeChild(dropTarget);
             dropCellPieceObj = null;
         }
 
-        if(dragObject.draggedPieceObj.color !== chess.checkPlayersTurn.colorTurn) {
+        if (dragObject.draggedPieceObj.color !== chess.checkPlayersTurn.colorTurn) {
             resetMove();
             return;
         }
@@ -89,7 +88,7 @@ Piece.DragManager = new function () {
         var isValidMove;
         var dropTargetContainsPiece = dropTarget.classList.contains('f_piece');
 
-        if(dropTargetContainsPiece) {
+        if (dropTargetContainsPiece) {
             var dropCell = dropTarget.parentNode;
             var dropTargetParentCoord = dropCell.getAttribute('id');
             var dropCoordsArr = splitCoordinates(dropTargetParentCoord);
@@ -104,7 +103,7 @@ Piece.DragManager = new function () {
 
                 if (isValidMove.success === true) {
                     chess.checkPlayersTurn.changeTheTurn();
-                    if(isValidMove.eat === true) {
+                    if (isValidMove.eat === true) {
                         prepareForEating(dropCell);
                         return dropCell;
                     }
@@ -139,8 +138,8 @@ Piece.DragManager = new function () {
         var pieceInCell = chess.board[coords.y][coords.x];
         var targetCoord = splitCoordinates(dropElem.id);
 
-        if(pieceInCell instanceof Pawn && (targetCoord.y === 7 || targetCoord.y === 0)) {
-            chess.convertPawn(pieceInCell, targetCoord.x, targetCoord.y);
+        if (pieceInCell instanceof Pawn && (targetCoord.y === 7 || targetCoord.y === 0)) {
+            chess.convertPawn(pieceInCell, dragObject.draggedPieceFigure, targetCoord.x, targetCoord.y);
         }
 
         chess.board[coords.y][coords.x] = null;
@@ -155,7 +154,7 @@ Piece.DragManager = new function () {
         chess.isMate();
     }
 
-    function resetMove () {
+    function resetMove() {
         dragObject.draggedPieceFigure.removeAttribute('style');
     }
 };
@@ -163,7 +162,7 @@ Piece.DragManager = new function () {
 var xCoordArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 var xCoordIndexCoordination = {a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7};
 
-function findLeftAndRightEatCoordX (xCoord){
+function findLeftAndRightEatCoordX(xCoord) {
     var xCoordIndex = xCoordIndexCoordination[xCoord];
 
     var eatLeftCoordX = xCoordIndex - 1 >= 0 ? xCoordArr[xCoordIndex - 1] : null;
