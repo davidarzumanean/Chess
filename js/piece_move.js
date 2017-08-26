@@ -141,7 +141,6 @@ Piece.DragManager = new function () {
 
         if(pieceInCell instanceof Pawn && (targetCoord.y === 7 || targetCoord.y === 0)) {
             chess.convertPawn(pieceInCell, targetCoord.x, targetCoord.y);
-            return;
         }
 
         chess.board[coords.y][coords.x] = null;

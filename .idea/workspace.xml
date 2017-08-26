@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="piece_move.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="piece_move.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/piece_move.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+            <state relative-caret-position="186">
+              <caret line="142" column="73" lean-forward="false" selection-start-line="142" selection-start-column="73" selection-end-line="142" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -31,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pawn_convert.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pawn_convert.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/pawn_convert.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
@@ -91,8 +91,8 @@
         <option value="$PROJECT_DIR$/styles.css" />
         <option value="$PROJECT_DIR$/js/check_mate.js" />
         <option value="$PROJECT_DIR$/js/pieces.js" />
-        <option value="$PROJECT_DIR$/js/piece_move.js" />
         <option value="$PROJECT_DIR$/js/pawn_convert.js" />
+        <option value="$PROJECT_DIR$/js/piece_move.js" />
       </list>
     </option>
   </component>
@@ -196,12 +196,12 @@
       <workItem from="1503553832328" duration="14558000" />
       <workItem from="1503642013181" duration="1028000" />
       <workItem from="1503685804558" duration="1293000" />
-      <workItem from="1503740523904" duration="2899000" />
+      <workItem from="1503740523904" duration="3009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47004000" />
+    <option name="totallyTimeSpent" value="47114000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,10 +628,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/piece_move.js">
+    <entry file="file://$PROJECT_DIR$/js/pawn_convert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+        <state relative-caret-position="441">
+          <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -644,10 +644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/pawn_convert.js">
+    <entry file="file://$PROJECT_DIR$/js/piece_move.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+        <state relative-caret-position="186">
+          <caret line="142" column="73" lean-forward="false" selection-start-line="142" selection-start-column="73" selection-end-line="142" selection-end-column="73" />
           <folding />
         </state>
       </provider>
