@@ -95,6 +95,12 @@ Piece.DragManager = new function () {
             var dropCellPieceObj = chess.board[dropCoordsArr.y][dropCoordsArr.x];
 
             if (dragObject.draggedPieceObj.color === dropCellPieceObj.color) {
+                if (dragObject.draggedPieceObj.constructor === King && dropCellPieceObj.constructor === Rook) {
+                    chess.reshuffle(dragObject.draggedPieceObj, dragObject.draggedPieceFigure, dropCellPieceObj, dropTarget);
+
+                    return;
+                }
+
                 resetMove();
                 return;
 

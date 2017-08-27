@@ -1,5 +1,6 @@
 function Rook(color, coords) {
     Piece.call(this, color, coords);
+    this.isNotMoved = true;
 
     this.validateMove = function (dropCoords) {
         var currentCoordsArr = this.coords;
@@ -25,6 +26,8 @@ function Rook(color, coords) {
                 }
             }
 
+            this.isNotMoved = false;
+
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};
             }
@@ -48,6 +51,8 @@ function Rook(color, coords) {
                     }
                 }
             }
+
+            this.isNotMoved = false;
 
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};

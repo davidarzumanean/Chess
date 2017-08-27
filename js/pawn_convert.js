@@ -73,6 +73,4 @@ chess.convertPawn = function(pawn, pawnUi, dropX, dropY) {
     pieceContainer.appendChild(knight);
     pieceContainer.appendChild(bishop);
     pieceContainer.appendChild(queen);
-
-
 };

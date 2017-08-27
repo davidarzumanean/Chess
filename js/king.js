@@ -1,5 +1,6 @@
 function King(color, coords) {
     Piece.call(this, color, coords);
+    this.isNotMoved = true;
 
     this.validateMove = function (dropCoords) {
         var currentCoordsArr = this.coords;
@@ -14,6 +15,7 @@ function King(color, coords) {
 
         if ((dropCoords.y === currentCoords.y + 1 || dropCoords.y === currentCoords.y - 1 ) && xCoordsAbsDifference <= 1) {
             kingsPosition[this.color] = {x: dropCoords.x, y: dropCoords.y};
+            this.isNotMoved = false;
 
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};
@@ -22,6 +24,7 @@ function King(color, coords) {
 
         } else if ((dropXCoordIndex === currentXCoordIndex + 1 || dropXCoordIndex === currentXCoordIndex - 1) && yCoordsAbsDifference <= 1){
             kingsPosition[this.color] = {x: dropCoords.x, y: dropCoords.y};
+            this.isNotMoved = false;
 
             if (chess.board[dropCoords.y][dropCoords.x] !== null) {
                 return {success: true, eat: true};
@@ -43,4 +46,4 @@ var kingsPosition = {
         x: 'e',
         y: 7
     }
-}
+};
