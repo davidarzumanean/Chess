@@ -3,13 +3,13 @@ chess.isCheck = function () {
         black: 'white',
         white: 'black'
     };
-    for (var i = 7; i >= 0; i--) {
-        for (var xCoord in chess.board[i]) {
-            if (chess.board[i][xCoord] !== null) {
+    for (var yCoord = 7; yCoord >= 0; yCoord--) {
+        for (var xCoord in chess.board[yCoord]) {
+            if (chess.board[yCoord][xCoord] !== null) {
 
-                var thisPiece = chess.board[i][xCoord];
+                var thisPiece = chess.board[yCoord][xCoord];
                 var enemyColor = reverseColor[thisPiece.color];
-                var check = thisPiece.validateMove(kingsPosition[enemyColor]);
+                var check = thisPiece.validateMove(KINGSPOSITION[enemyColor]);
 
                 if (check.success === true) {
                     alert(thisPiece.color + ' checked');
@@ -20,10 +20,10 @@ chess.isCheck = function () {
 };
 
 chess.isMate = function () {
-    var whiteKingCoors = kingsPosition.white;
-    var blackKingCoors = kingsPosition.black;
-    var whiteKing = chess.board[whiteKingCoors.y][whiteKingCoors.x];
-    var blackKing = chess.board[blackKingCoors.y][blackKingCoors.x];
+    var whiteKingCoords = KINGSPOSITION.white;
+    var blackKingCoords = KINGSPOSITION.black;
+    var whiteKing = chess.board[whiteKingCoords.y][whiteKingCoords.x];
+    var blackKing = chess.board[blackKingCoords.y][blackKingCoords.x];
 
     if (!(whiteKing instanceof King)) {
         alert('Black Won!');

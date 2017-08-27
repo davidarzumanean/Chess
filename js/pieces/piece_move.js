@@ -71,12 +71,7 @@ Piece.DragManager = new function () {
     }
 
     function checkDroppable(event) {
-        function prepareForEating(dropCell) {
-            dropCell.removeChild(dropTarget);
-            dropCellPieceObj = null;
-        }
-
-        if (dragObject.draggedPieceObj.color !== chess.checkPlayersTurn.colorTurn) {
+        if (dragObject.draggedPieceObj.color !== chess.playersTurn.colorTurn) {
             resetMove();
             return;
         }
@@ -88,41 +83,13 @@ Piece.DragManager = new function () {
         var isValidMove;
         var dropTargetContainsPiece = dropTarget.classList.contains('f_piece');
 
-        if (dropTargetContainsPiece) {
-            var dropCell = dropTarget.parentNode;
-            var dropTargetParentCoord = dropCell.getAttribute('id');
-            var dropCoordsArr = splitCoordinates(dropTargetParentCoord);
-            var dropCellPieceObj = chess.board[dropCoordsArr.y][dropCoordsArr.x];
-
-            if (dragObject.draggedPieceObj.color === dropCellPieceObj.color) {
-                if (dragObject.draggedPieceObj.constructor === King && dropCellPieceObj.constructor === Rook) {
-                    chess.reshuffle(dragObject.draggedPieceObj, dragObject.draggedPieceFigure, dropCellPieceObj, dropTarget);
-
-                    return;
-                }
-
-                resetMove();
-                return;
-
-            } else if (dragObject.draggedPieceObj.color !== dropCellPieceObj.color) {
-                isValidMove = dragObject.draggedPieceObj.validateMove(dropCoordsArr);
-
-                if (isValidMove.success === true) {
-                    chess.checkPlayersTurn.changeTheTurn();
-                    if (isValidMove.eat === true) {
-                        prepareForEating(dropCell);
-                        return dropCell;
-                    }
-                    return dropTarget;
-                } else {
-                    resetMove();
-                    return;
-                }
-            }
-
-        } else if (!dropTarget.classList.contains('f_piece') && !dropTarget.classList.contains('f_board-cell')) {
+        if (!dropTarget.classList.contains('f_piece') && !dropTarget.classList.contains('f_board-cell')) {
             resetMove();
             return;
+        }
+
+        if (dropTargetContainsPiece) {
+            return validateEat(dropTarget);
         }
 
         var dropCellCoord = dropTarget.getAttribute('id');
@@ -131,11 +98,51 @@ Piece.DragManager = new function () {
         isValidMove = dragObject.draggedPieceObj.validateMove(dropCellCoordsArr);
 
         if (isValidMove && isValidMove.success === true) {
-            chess.checkPlayersTurn.changeTheTurn();
+            turn.nextPlayer();
             return dropTarget;
 
-        } else {
+        }
+
+        resetMove();
+    }
+
+    function validateEat(dropTarget) {
+        var dropCell = dropTarget.parentNode;
+        var dropTargetParentCoord = dropCell.getAttribute('id');
+        var dropCoordsArr = splitCoordinates(dropTargetParentCoord);
+        var dropCellPieceObj = chess.board[dropCoordsArr.y][dropCoordsArr.x];
+
+        function prepareForEating(dropCell) {
+            dropCell.removeChild(dropTarget);
+            dropCellPieceObj = null;
+        }
+
+        if (dragObject.draggedPieceObj.color === dropCellPieceObj.color) {
+            if (dragObject.draggedPieceObj.constructor === King && dropCellPieceObj.constructor === Rook) {
+                chess.reshuffle(dragObject.draggedPieceObj, dragObject.draggedPieceFigure, dropCellPieceObj, dropTarget);
+
+                return;
+            }
+
             resetMove();
+            return;
+
+        } else {
+            isValidMove = dragObject.draggedPieceObj.validateMove(dropCoordsArr);
+
+            if (isValidMove.success === true) {
+                turn.nextPlayer();
+
+                if (isValidMove.eat === true) {
+                    prepareForEating(dropCell);
+                    return dropCell;
+                }
+                return dropTarget;
+
+            } else {
+                resetMove();
+                return;
+            }
         }
     }
 
@@ -164,18 +171,6 @@ Piece.DragManager = new function () {
         dragObject.draggedPieceFigure.removeAttribute('style');
     }
 };
-
-var xCoordArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-var xCoordIndexCoordination = {a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7};
-
-function findLeftAndRightEatCoordX(xCoord) {
-    var xCoordIndex = xCoordIndexCoordination[xCoord];
-
-    var eatLeftCoordX = xCoordIndex - 1 >= 0 ? xCoordArr[xCoordIndex - 1] : null;
-    var eatRightCoordX = xCoordIndex + 1 < xCoordArr.length ? xCoordArr[xCoordIndex + 1] : null;
-
-    return [eatLeftCoordX, eatRightCoordX];
-}
 
 function splitCoordinates(coord) {
     coord = coord.split('-');

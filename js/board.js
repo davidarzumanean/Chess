@@ -6,19 +6,20 @@ chess.initBoard = function () {
 
     chess.chessBoard = table;
 
-    for (var i = 7; i >= 0; i--) {
-        chess.board[i] = {a: null, b: null, c: null, d: null, e: null, f: null, g: null, h: null};
+    for (var boardRow = 7; boardRow >= 0; boardRow--) {
+        chess.board[boardRow] = {a: null, b: null, c: null, d: null, e: null, f: null, g: null, h: null};
         var row = document.createElement("tr");
         table.appendChild(row);
 
 
-        for(var cell in chess.board[i]){
+        for(var boardCol in chess.board[boardRow]){
             var boardCell = document.createElement("td");
             row.appendChild(boardCell);
-            boardCell.setAttribute('id', cell + '-' + i);
+            boardCell.setAttribute('id', boardCol + '-' + boardRow);
             boardCell.classList.add('f_board-cell');
         }
     }
 
-    chess.initPieces();
+    pieces.init();
+    pieces.drawPieces();
 };

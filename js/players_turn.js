@@ -1,13 +1,13 @@
-chess.checkPlayersTurn = {
-    pieceColorArr: ['white', 'black'],
+chess.playersTurn = {
+    pieceColorArr: [WHITEPIECE, BLACKPIECE],
     turnIndex: 0
 };
 
-var turn = chess.checkPlayersTurn;
+var turn = chess.playersTurn;
 
 turn.colorTurn = turn.pieceColorArr[turn.turnIndex];
 
-turn.changeTheTurn = function () {
+turn.nextPlayer = function () {
     turn.turnIndex = (turn.turnIndex + 1) % 2;
     turn.colorTurn = turn.pieceColorArr[turn.turnIndex];
 };
