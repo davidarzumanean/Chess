@@ -17,7 +17,7 @@ Piece.DragManager = new function () {
             var parentCell = dragObject.draggedPieceFigure.parentNode;
             dragObject.parentCoord = splitCoordinates(parentCell.id);
 
-            dragObject.draggedPieceObj = moveController.getPieceObjectByCoords(dragObject.parentCoord);
+            moveController.getPieceObjectByCoords(dragObject.parentCoord);
 
             dragObject.downX = e.pageX;
             dragObject.downY = e.pageY;
@@ -70,19 +70,16 @@ Piece.DragManager = new function () {
     }
 
     function checkDroppable(event) {
-        if (moveController.draggedObj.color !== chess.playersTurn.colorTurn) {
+        if (moveController.checkMoveTurn() === false) {
             resetMove();
             return;
         }
 
-        dragObject.draggedPieceFigure.hidden = true;
-        var dropTarget = document.elementFromPoint(event.clientX, event.clientY);
-        dragObject.draggedPieceFigure.hidden = false;
+        var dropTarget = getDropTarget();
 
-        var isValidMove;
         var dropTargetContainsPiece = dropTarget.classList.contains('f_piece');
 
-        if (!dropTarget.classList.contains('f_piece') && !dropTarget.classList.contains('f_board-cell')) {
+        if (!dropTargetContainsPiece && !dropTarget.classList.contains('f_board-cell')) {
             resetMove();
             return;
         }
@@ -93,13 +90,11 @@ Piece.DragManager = new function () {
 
         var dropCellCoord = dropTarget.getAttribute('id');
         var dropCellCoordsArr = splitCoordinates(dropCellCoord);
-
-        isValidMove = moveController.draggedObj.validateMove(dropCellCoordsArr);
+        var isValidMove = moveController.validateMove(dropCellCoordsArr);
 
         if (isValidMove && isValidMove.success === true) {
             turn.nextPlayer();
             return dropTarget;
-
         }
 
         resetMove();
@@ -110,15 +105,16 @@ Piece.DragManager = new function () {
         var dropTargetParentCoord = dropCell.getAttribute('id');
         var dropCoordsArr = splitCoordinates(dropTargetParentCoord);
 
-        var dropCellPieceObj = moveController.getPieceObjectByCoords(dropCoordsArr);
+        moveController.getPieceObjectByCoords(dropCoordsArr, true);
+        var dropCellPieceObj = moveController.dropTargetObj;
 
         function prepareForEating(dropCell) {
             dropCell.removeChild(dropTarget);
-            dropCellPieceObj = null;
+            moveController.eatTargetPiece();
         }
 
-        if (moveController.draggedObj.color === dropCellPieceObj.color) {
-            if (moveController.draggedObj.constructor === King && dropCellPieceObj.constructor === Rook) {
+        if (moveController.draggedObj.color === moveController.dropTargetObj.color) {
+            if (moveController.draggedObj.constructor === King && moveController.dropTargetObj.constructor === Rook) {
                 chess.reshuffle(moveController.draggedObj, dragObject.draggedPieceFigure, dropCellPieceObj, dropTarget);
 
                 return;
@@ -146,13 +142,21 @@ Piece.DragManager = new function () {
         }
     }
 
+    function getDropTarget() {
+        dragObject.draggedPieceFigure.hidden = true;
+        var dropTarget = document.elementFromPoint(event.clientX, event.clientY);
+        dragObject.draggedPieceFigure.hidden = false;
+
+        return dropTarget;
+    }
+
     function onDragEnd(dragObject, dropElem) {
         var coords = dragObject.parentCoord;
         var pieceInCell = moveController.draggedObj;
 
         var targetCoord = splitCoordinates(dropElem.id);
 
-        if (pieceInCell instanceof Pawn && (targetCoord.y === 7 || targetCoord.y === 0)) {
+        if (pieceInCell instanceof Pawn && (targetCoord.y === ROW_7 || targetCoord.y === ROW_0)) {
             chess.convertPawn(pieceInCell, dragObject.draggedPieceFigure, targetCoord.x, targetCoord.y);
         }
 
