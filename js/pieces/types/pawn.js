@@ -4,8 +4,8 @@ function Pawn(color, coords) {
     this.validateMove = function (dropCoords) {
         var currentCoordsArr = this.coords;
         var currentCoords = {};
-        currentCoords.x = currentCoordsArr[0];
-        currentCoords.y = currentCoordsArr[1];
+        currentCoords.x = currentCoordsArr.x;
+        currentCoords.y = currentCoordsArr.y;
 
         var pieceColor = this.color;
 
@@ -39,14 +39,14 @@ function Pawn(color, coords) {
 
         // eat validation
         if (chess.board[dropCoords.y][dropCoords.x] !== null) {
-            var neighborPieces = pawnEatXCoords(currentCoords.x);
-            var leftPieceX = neighborPieces[0];
-            var rightPieceX = neighborPieces[1];
-
             // Coordinates increase from bottom to top, so if black pawn moves, yCoord will decrease
             var yCoordSlip = pieceColor === 'white' ? 1 : -1;
+
             if (dropCoords.y === currentCoords.y + yCoordSlip) {
-                if ((leftPieceX !== null && leftPieceX === dropCoords.x) || (rightPieceX !== null && rightPieceX === dropCoords.x)) {
+                var currentXCoordIndex = xCoordNumeric[currentCoords.x];
+                var dropXCoordIndex = xCoordNumeric[dropCoords.x];
+
+                if ((dropXCoordIndex === currentXCoordIndex + 1) || (dropXCoordIndex === currentXCoordIndex - 1)) {
                     return {success: true, eat: true};
                 }
             }
@@ -54,14 +54,4 @@ function Pawn(color, coords) {
 
         return {success: false};
     }
-}
-
-function pawnEatXCoords(xCoord) {
-    var xCoordIndex = xCoordNumeric[xCoord];
-
-    // if xCoord is in table, assign it, else, assign null
-    var eatLeftCoordX = xCoordIndex - 1 >= 0 ? xCoordAlphabetic[xCoordIndex - 1] : null;
-    var eatRightCoordX = xCoordIndex + 1 < xCoordAlphabetic.length ? xCoordAlphabetic[xCoordIndex + 1] : null;
-
-    return [eatLeftCoordX, eatRightCoordX];
 }

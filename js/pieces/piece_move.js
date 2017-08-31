@@ -13,8 +13,8 @@ Piece.DragManager = new function () {
                 return;
             }
 
-            dragObject.draggedPieceFigure = draggedPiece;
-            var parentCell = dragObject.draggedPieceFigure.parentNode;
+            dragObject.draggedPieceDom = draggedPiece;
+            var parentCell = dragObject.draggedPieceDom.parentNode;
             dragObject.parentCoord = splitCoordinates(parentCell.id);
 
             moveController.getPieceObjectByCoords(dragObject.parentCoord);
@@ -27,7 +27,7 @@ Piece.DragManager = new function () {
     }
 
     function onMouseMove(e) {
-        if (!dragObject.draggedPieceFigure) {
+        if (!dragObject.draggedPieceDom) {
             return;
         }
 
@@ -40,19 +40,19 @@ Piece.DragManager = new function () {
 
         startDrag(e);
 
-        dragObject.draggedPieceFigure.style.left = moveX + 'px';
-        dragObject.draggedPieceFigure.style.top = moveY + 'px';
+        dragObject.draggedPieceDom.style.left = moveX + 'px';
+        dragObject.draggedPieceDom.style.top = moveY + 'px';
 
         return false;
     }
 
     function startDrag() {
-        dragObject.draggedPieceFigure.style.zIndex = 9999;
-        dragObject.draggedPieceFigure.style.position = 'absolute';
+        dragObject.draggedPieceDom.style.zIndex = 9999;
+        dragObject.draggedPieceDom.style.position = 'absolute';
     }
 
     function onMouseUp(e) {
-        if (dragObject.draggedPieceFigure) {
+        if (dragObject.draggedPieceDom) {
             finishDrag(e);
         }
 
@@ -60,10 +60,10 @@ Piece.DragManager = new function () {
     }
 
     function finishDrag(e) {
-        var dropElem = checkDroppable(e);
+        var dropTarget = checkDroppable(e);
 
-        if (dropElem) {
-            onDragEnd(dragObject, dropElem);
+        if (dropTarget) {
+            onDragEnd(dropTarget);
         } else {
             resetMove();
         }
@@ -90,10 +90,10 @@ Piece.DragManager = new function () {
 
         var dropCellCoord = dropTarget.getAttribute('id');
         var dropCellCoordsArr = splitCoordinates(dropCellCoord);
+
         var isValidMove = moveController.validateMove(dropCellCoordsArr);
 
         if (isValidMove && isValidMove.success === true) {
-            turn.nextPlayer();
             return dropTarget;
         }
 
@@ -106,31 +106,33 @@ Piece.DragManager = new function () {
         var dropCoordsArr = splitCoordinates(dropTargetParentCoord);
 
         moveController.getPieceObjectByCoords(dropCoordsArr, true);
-        var dropCellPieceObj = moveController.dropTargetObj;
 
-        function prepareForEating(dropCell) {
+        function preparetoEat(dropCell) {
             dropCell.removeChild(dropTarget);
             moveController.eatTargetPiece();
         }
 
-        if (moveController.draggedObj.color === moveController.dropTargetObj.color) {
-            if (moveController.draggedObj.constructor === King && moveController.dropTargetObj.constructor === Rook) {
-                chess.reshuffle(moveController.draggedObj, dragObject.draggedPieceFigure, dropCellPieceObj, dropTarget);
+        if (moveController.targetPieceHasSameColor()) {
+            if (moveController.reshuffle()) {
+                var newPositions = chess.reshuffle(moveController.draggedObj, moveController.dropTargetObj);
 
+                var kingPositionCell = document.getElementById(newPositions.kingPos);
+                var rookPositionCell = document.getElementById(newPositions.rookPos);
+                console.log(kingPositionCell);
+
+                kingPositionCell.appendChild(dragObject.draggedPieceDom);
+                rookPositionCell.appendChild(dropTarget);
                 return;
             }
 
-            resetMove();
-            return;
-
         } else {
-            isValidMove = moveController.draggedObj.validateMove(dropCoordsArr);
+            isValidMove = moveController.validateMove(dropCoordsArr);
 
             if (isValidMove.success === true) {
                 turn.nextPlayer();
 
                 if (isValidMove.eat === true) {
-                    prepareForEating(dropCell);
+                    preparetoEat(dropCell);
                     return dropCell;
                 }
                 return dropTarget;
@@ -143,37 +145,35 @@ Piece.DragManager = new function () {
     }
 
     function getDropTarget() {
-        dragObject.draggedPieceFigure.hidden = true;
+        dragObject.draggedPieceDom.hidden = true;
         var dropTarget = document.elementFromPoint(event.clientX, event.clientY);
-        dragObject.draggedPieceFigure.hidden = false;
+        dragObject.draggedPieceDom.hidden = false;
 
         return dropTarget;
     }
 
-    function onDragEnd(dragObject, dropElem) {
-        var coords = dragObject.parentCoord;
-        var pieceInCell = moveController.draggedObj;
+    function onDragEnd(dropTarget) {
+        var targetCoord = splitCoordinates(dropTarget.id);
 
-        var targetCoord = splitCoordinates(dropElem.id);
-
-        if (pieceInCell instanceof Pawn && (targetCoord.y === ROW_7 || targetCoord.y === ROW_0)) {
-            chess.convertPawn(pieceInCell, dragObject.draggedPieceFigure, targetCoord.x, targetCoord.y);
+        if (moveController.convertPawn(targetCoord)) {
+            chess.convertPawn(moveController.draggedObj, dragObject.draggedPieceDom, targetCoord.x, targetCoord.y);
         }
 
-        chess.board[coords.y][coords.x] = null;
+        moveController.moveTo(targetCoord);
 
-        chess.board[targetCoord.y][targetCoord.x] = pieceInCell;
-        pieceInCell.coords = [targetCoord.x, targetCoord.y];
-
-        dropElem.appendChild(dragObject.draggedPieceFigure);
-        dragObject.draggedPieceFigure.removeAttribute('style');
+        movePieceInDom(dropTarget);
 
         chess.isCheck();
         chess.isMate();
     }
 
     function resetMove() {
-        dragObject.draggedPieceFigure.removeAttribute('style');
+        dragObject.draggedPieceDom.removeAttribute('style');
+    }
+
+    function movePieceInDom(targetCoord) {
+        targetCoord.appendChild(dragObject.draggedPieceDom);
+        dragObject.draggedPieceDom.removeAttribute('style');
     }
 };
 

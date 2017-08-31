@@ -3,6 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="671c5c1d-82bc-43c1-83fa-45679333c00e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/constants.js" afterPath="$PROJECT_DIR$/js/constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/pawn_convert.js" afterPath="$PROJECT_DIR$/js/pieces/pawn_convert.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/piece_move.js" afterPath="$PROJECT_DIR$/js/pieces/piece_move.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/piece_move_controller.js" afterPath="$PROJECT_DIR$/js/pieces/piece_move_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/pieces.js" afterPath="$PROJECT_DIR$/js/pieces/pieces.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/reshuffle.js" afterPath="$PROJECT_DIR$/js/pieces/reshuffle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/types/bishop.js" afterPath="$PROJECT_DIR$/js/pieces/types/bishop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/types/king.js" afterPath="$PROJECT_DIR$/js/pieces/types/king.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/types/knight.js" afterPath="$PROJECT_DIR$/js/pieces/types/knight.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/types/pawn.js" afterPath="$PROJECT_DIR$/js/pieces/types/pawn.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/types/queen.js" afterPath="$PROJECT_DIR$/js/pieces/types/queen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pieces/types/rook.js" afterPath="$PROJECT_DIR$/js/pieces/types/rook.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="piece_move.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="piece_move.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/pieces/piece_move.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="152" column="46" lean-forward="true" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
+            <state relative-caret-position="273">
+              <caret line="107" column="45" lean-forward="false" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reshuffle.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/pieces/reshuffle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -26,28 +48,18 @@
       <file leaf-file-name="piece_move_controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/pieces/piece_move_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+            <state relative-caret-position="645">
+              <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="players_turn.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/players_turn.js">
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/board.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            <state relative-caret-position="663">
+              <caret line="39" column="80" lean-forward="false" selection-start-line="39" selection-start-column="80" selection-end-line="39" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -57,36 +69,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rookCoordX</find>
-      <find>rookInitCellId</find>
-      <find>kingpos</find>
-      <find>kings</find>
-      <find>resh</find>
-      <find>kingObj.coords</find>
-      <find>console.oo</find>
-      <find>playersTurn</find>
-      <find>0].</find>
-      <find>7].</find>
-      <find>xCoordAlphabetic</find>
-      <find>xCoordArr</find>
-      <find>'E'</find>
-      <find>xCoordIndexCoordination</find>
-      <find>function prepareForEating(dropCell) {            dropCell.removeChild(dropTarget);            dropCellPieceObj = null;        }</find>
-      <find>kingsPosition</find>
-      <find>nextPlayer</find>
-      <find>rookOffset</find>
-      <find>xCoordCharIndex</find>
-      <find>findLeftAndRightEatCoordX</find>
-      <find>pawnEatXCoords</find>
-      <find>dropCellContainsPiece</find>
-      <find>dropTargetParentCoord</find>
-      <find>dragCoords</find>
-      <find>splitCoordinates</find>
-      <find>chess.board</find>
-      <find>dragObject.parentCoord</find>
-      <find>moveController</find>
       <find>draggedPieceObj</find>
       <find>droppedOb</find>
+      <find>a</find>
+      <find>].a</find>
+      <find>coords[1]</find>
+      <find>coords[0]</find>
+      <find>coords[0</find>
+      <find>currentCoordsArr[0]</find>
+      <find>currentCoordsArr[1]</find>
+      <find>[</find>
+      <find>prepareForEating</find>
+      <find>moveto</find>
+      <find>changeturn</find>
+      <find>nextPlayer</find>
+      <find>moveTo</find>
+      <find>eat</find>
+      <find>splitCoordinates</find>
+      <find>coords</find>
+      <find>kingCoordY</find>
+      <find>validateEat</find>
+      <find>dragObject</find>
+      <find>dropCellPieceObj</find>
+      <find>onDragEnd</find>
+      <find>dropElem</find>
+      <find>draggedPieceFigure</find>
+      <find>KINGSPOSITION</find>
+      <find>pawnEatXCoords</find>
+      <find>validateMove</find>
+      <find>console</find>
+      <find>moveController.getPieceObjectByCoords</find>
     </findStrings>
     <replaceStrings>
       <replace>dropXCoordIndex</replace>
@@ -102,6 +114,11 @@
       <replace>KINGSPOSITION</replace>
       <replace>COL_E</replace>
       <replace>xCoordAlpha</replace>
+      <replace>].COL_A</replace>
+      <replace>currentCoordsArr.x</replace>
+      <replace>currentCoordsArr.y</replace>
+      <replace>coords.x</replace>
+      <replace>draggedPieceDom</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\dev\xampp\htdocs\Chess\.idea\Chess\js</dir>
@@ -133,19 +150,20 @@
         <option value="$PROJECT_DIR$/js/board.js" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/js/check_mate.js" />
-        <option value="$PROJECT_DIR$/js/constants.js" />
-        <option value="$PROJECT_DIR$/js/pieces/reshuffle.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/players_turn.js" />
         <option value="$PROJECT_DIR$/js/pieces/pawn_convert.js" />
+        <option value="$PROJECT_DIR$/js/pieces/types/bishop.js" />
+        <option value="$PROJECT_DIR$/js/pieces/types/queen.js" />
+        <option value="$PROJECT_DIR$/js/pieces/pieces.js" />
+        <option value="$PROJECT_DIR$/js/pieces/piece_move_controller.js" />
         <option value="$PROJECT_DIR$/js/pieces/types/knight.js" />
         <option value="$PROJECT_DIR$/js/pieces/types/pawn.js" />
         <option value="$PROJECT_DIR$/js/pieces/types/rook.js" />
-        <option value="$PROJECT_DIR$/js/pieces/types/queen.js" />
-        <option value="$PROJECT_DIR$/js/pieces/types/bishop.js" />
         <option value="$PROJECT_DIR$/js/pieces/types/king.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/players_turn.js" />
+        <option value="$PROJECT_DIR$/js/constants.js" />
         <option value="$PROJECT_DIR$/js/pieces/piece_move.js" />
-        <option value="$PROJECT_DIR$/js/pieces/piece_move_controller.js" />
+        <option value="$PROJECT_DIR$/js/pieces/reshuffle.js" />
       </list>
     </option>
   </component>
@@ -185,8 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,6 +232,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,11 +297,12 @@
       <workItem from="1503903860607" duration="1431000" />
       <workItem from="1503986600422" duration="6281000" />
       <workItem from="1504073029681" duration="7695000" />
+      <workItem from="1504160600768" duration="3266000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101378000" />
+    <option name="totallyTimeSpent" value="121227000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,32 +317,23 @@
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1444563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14605543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32664436" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32664436" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1444563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -384,7 +394,7 @@
         <state relative-caret-position="119">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
-            <marker date="1503859174743" expanded="true" signature="143:2787" ph="{...}" />
+            <marker date="1504115146403" expanded="true" signature="143:2897" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -445,7 +455,7 @@
         <state relative-caret-position="119">
           <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
-            <marker date="1503859174743" expanded="true" signature="143:2787" ph="{...}" />
+            <marker date="1504115146403" expanded="true" signature="143:2897" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -550,7 +560,7 @@
         <state relative-caret-position="90">
           <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
-            <marker date="1503859174743" expanded="true" signature="143:2787" ph="{...}" />
+            <marker date="1504115146403" expanded="true" signature="143:2897" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -612,118 +622,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/pieces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="70" lean-forward="true" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
-          <folding>
-            <marker date="1503859174743" expanded="true" signature="143:2787" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/types/bishop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="36" column="70" lean-forward="true" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/types/king.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <marker date="1503875587368" expanded="true" signature="29:68" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/types/knight.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/types/pawn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="147" lean-forward="true" selection-start-line="27" selection-start-column="147" selection-end-line="27" selection-end-column="147" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/pawn_convert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/types/queen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/check_mate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="46" lean-forward="false" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/types/rook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="934">
-          <caret line="69" column="31" lean-forward="false" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="81" lean-forward="false" selection-start-line="27" selection-start-column="81" selection-end-line="27" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/board.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/reshuffle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="79" lean-forward="true" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
           <folding />
         </state>
       </provider>
@@ -736,18 +638,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/pieces/piece_move_controller.js">
+    <entry file="file://$PROJECT_DIR$/js/pieces/pawn_convert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+        <state relative-caret-position="264">
+          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/pieces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <marker date="1504115146403" expanded="true" signature="143:2897" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/board.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="81" lean-forward="false" selection-start-line="27" selection-start-column="81" selection-end-line="27" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/types/bishop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/types/pawn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/types/queen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/types/rook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/types/knight.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="38" lean-forward="false" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/types/king.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="815">
+          <caret line="52" column="2" lean-forward="false" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="80" lean-forward="false" selection-start-line="39" selection-start-column="80" selection-end-line="39" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/pieces/piece_move.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="152" column="46" lean-forward="true" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
+        <state relative-caret-position="273">
+          <caret line="107" column="45" lean-forward="false" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/piece_move_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pieces/reshuffle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>

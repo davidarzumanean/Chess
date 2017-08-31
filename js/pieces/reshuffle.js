@@ -1,11 +1,11 @@
-chess.reshuffle = function (kingObj, kingUiElem, rookObj, rookUiElem) {
+chess.reshuffle = function (kingObj, rookObj) {
 
     if (kingObj.isNotMoved === true && rookObj.isNotMoved === true) {
-        var kingCoordXIndex = xCoordNumeric[kingObj.coords[0]];
-        var kingCoordY = kingObj.coords[1];
+        var kingCoordXIndex = xCoordNumeric[kingObj.coords.x];
+        var kingCoordY = kingObj.coords.y;
 
-        var rookCoordXIndex = xCoordNumeric[rookObj.coords[0]];
-        var rookCoordY = rookObj.coords[1];
+        var rookCoordXIndex = xCoordNumeric[rookObj.coords.x];
+        var rookCoordY = rookObj.coords.y;
 
         function shuffle(kingXOffset, rookXOffset) {
             var kingNewXCoord = xCoordAlphabetic[kingCoordXIndex + kingXOffset];
@@ -15,8 +15,8 @@ chess.reshuffle = function (kingObj, kingUiElem, rookObj, rookUiElem) {
             chess.board[kingCoordY][xCoordAlphabetic[kingCoordXIndex]] = null;
             chess.board[rookCoordY][xCoordAlphabetic[rookCoordXIndex]] = null;
             // Updates Pieces' coord.x property
-            kingObj.coords[0] = kingNewXCoord;
-            rookObj.coords[0] = rookNewXCoord;
+            kingObj.coords.x = kingNewXCoord;
+            rookObj.coords.x = rookNewXCoord;
 
             // Updates Kings position in the Object
             KINGSPOSITION[kingObj.color].x = kingNewXCoord;
@@ -28,13 +28,9 @@ chess.reshuffle = function (kingObj, kingUiElem, rookObj, rookUiElem) {
             var kingNewCellId = kingNewXCoord + '-' + kingCoordY;
             var rookNewCellId = rookNewXCoord + '-' + rookCoordY;
 
-            var kingPositionCell = document.getElementById(kingNewCellId);
-            var rookPositionCell = document.getElementById(rookNewCellId);
-
-            kingPositionCell.appendChild(kingUiElem);
-            rookPositionCell.appendChild(rookUiElem);
-
             turn.nextPlayer();
+
+            return {kingPos: kingNewCellId, rookPos: rookNewCellId}
         };
 
         if (kingCoordXIndex < rookCoordXIndex) {

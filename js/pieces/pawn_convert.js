@@ -16,7 +16,7 @@ chess.convertPawn = function(pawn, pawnUi, dropX, dropY) {
     piece.style.position = 'static';
 
     piece.onclick = function() {
-        chess.board[coords[1]][coords[0]] = null;
+        chess.board[coords.y][coords.x] = null;
 
         var selectedType = this.getAttribute('data-type');
 
