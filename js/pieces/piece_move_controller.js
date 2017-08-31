@@ -11,10 +11,7 @@ var moveController = {
     },
 
     checkMoveTurn: function () {
-        if(this.draggedObj.color === chess.playersTurn.colorTurn) {
-            return true;
-        }
-        return false;
+        return this.draggedObj.color === chess.playersTurn.colorTurn;
     },
 
     validateMove: function (dropCellCoordsArr) {
@@ -40,11 +37,7 @@ var moveController = {
     },
 
     targetPieceHasSameColor: function () {
-        if(this.draggedObj.color === this.dropTargetObj.color) {
-            return true;
-        }
-
-        return false;
+        return this.draggedObj.color === this.dropTargetObj.color;
     },
     
     reshuffle: function () {
@@ -55,9 +48,6 @@ var moveController = {
     },
 
     convertPawn: function (targetCoord) {
-        if(this.draggedObj instanceof Pawn && (targetCoord.y === ROW_7 || targetCoord.y === ROW_0)){
-            return true;
-        }
-        return false;
+        return (this.draggedObj instanceof Pawn && (targetCoord.y === ROW_7 || targetCoord.y === ROW_0));
     }
-}
+};

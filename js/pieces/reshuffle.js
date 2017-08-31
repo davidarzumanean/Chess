@@ -31,7 +31,7 @@ chess.reshuffle = function (kingObj, rookObj) {
             turn.nextPlayer();
 
             return {kingPos: kingNewCellId, rookPos: rookNewCellId}
-        };
+        }
 
         if (kingCoordXIndex < rookCoordXIndex) {
             for (var i = kingCoordXIndex + 1; i < rookCoordXIndex; i++) {
