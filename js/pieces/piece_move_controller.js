@@ -42,12 +42,37 @@ var moveController = {
     
     reshuffle: function () {
         if(this.draggedObj.constructor === King && this.dropTargetObj.constructor === Rook) {
-            chess.reshuffle(moveController.draggedObj, moveController.dropTargetObj);
+            var reshuffleCoords = chess.reshuffle(moveController.draggedObj, moveController.dropTargetObj);
+            return reshuffleCoords;
         }
         return false;
     },
 
-    convertPawn: function (targetCoord) {
+    canConvertPawn: function (targetCoord) {
         return (this.draggedObj instanceof Pawn && (targetCoord.y === ROW_7 || targetCoord.y === ROW_0));
+    },
+    
+    convertPawn: function (selectedType, dropCoords) {
+        var color = this.draggedObj.color;
+        var coords = this.draggedObj.coords;
+        var dropX = dropCoords.x;
+        var dropY = dropCoords.y;
+
+        chess.board[coords.y][coords.x] = null;
+
+        switch(selectedType) {
+            case 'Rook':
+                chess.board[dropY][dropX] = new Rook(color, {x: dropX, y: dropY});
+                break;
+            case 'Knight':
+                chess.board[dropY][dropX] = new Knight(color, {x: dropX, y: dropY});
+                break;
+            case 'Bishop':
+                chess.board[dropY][dropX] = new Bishop(color, {x: dropX, y: dropY});
+                break;
+            case 'Queen':
+                chess.board[dropY][dropX] = new Queen(color, {x: dropX, y: dropY});
+                break;
+        }
     }
 };

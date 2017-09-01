@@ -113,12 +113,11 @@ Piece.DragManager = new function () {
         }
 
         if (moveController.targetPieceHasSameColor()) {
-            if (moveController.reshuffle()) {
-                var newPositions = chess.reshuffle(moveController.draggedObj, moveController.dropTargetObj);
 
-                var kingPositionCell = document.getElementById(newPositions.kingPos);
-                var rookPositionCell = document.getElementById(newPositions.rookPos);
-                console.log(kingPositionCell);
+            var reshuffleCoords = moveController.reshuffle();
+            if (reshuffleCoords) {
+                var kingPositionCell = document.getElementById(reshuffleCoords.kingPos);
+                var rookPositionCell = document.getElementById(reshuffleCoords.rookPos);
 
                 kingPositionCell.appendChild(dragObject.draggedPieceDom);
                 rookPositionCell.appendChild(dropTarget);
@@ -155,8 +154,8 @@ Piece.DragManager = new function () {
     function onDragEnd(dropTarget) {
         var targetCoord = splitCoordinates(dropTarget.id);
 
-        if (moveController.convertPawn(targetCoord)) {
-            chess.convertPawn(moveController.draggedObj, dragObject.draggedPieceDom, targetCoord.x, targetCoord.y);
+        if (moveController.canConvertPawn(targetCoord)) {
+            chess.convertPawn(moveController.draggedObj, dragObject.draggedPieceDom, targetCoord);
         }
 
         moveController.moveTo(targetCoord);
@@ -181,4 +180,61 @@ function splitCoordinates(coord) {
     coord = coord.split('-');
 
     return {x: coord[0], y: +coord[1]};
+}
+
+// function initConvertPiecesSelection(pawnPiece, color, dropCoords) {
+//     var boardContainer = document.getElementById('boardContainer');
+//     var pieceContainer =  document.createElement('div');
+//     pieceContainer.classList.add('convert-pieces-container');
+//     boardContainer.appendChild(pieceContainer);
+//
+//     var overlay = document.getElementsByClassName('f_overlay')[0];
+//     overlay.classList.add('is_active');
+//     document.getElementById('board').classList.add('disable-pointer');
+//
+//     var piece = document.createElement('div');
+//     piece.classList.add('piece');
+//     piece.style.position = 'static';
+//
+//     piece.onclick = function() {
+//         var selectedType = this.getAttribute('data-type');
+//
+//         moveController.convertPawn(selectedType, dropCoords);
+//
+//         convertPieceUi(pawnPiece, color, selectedType)
+//
+//         pieceContainer.remove();
+//         overlay.classList.remove('is_active');
+//         document.getElementById('board').classList.remove('disable-pointer');
+//     };
+//
+//     var rook = piece.cloneNode(true);
+//     rook.onclick = piece.onclick;
+//     rook.dataset.type = 'Rook';
+//     rook.classList.add(color + '-rook');
+//
+//     var knight = piece.cloneNode(true);
+//     knight.onclick = piece.onclick;
+//     knight.dataset.type = 'Knight';
+//     knight.classList.add(color + '-knight');
+//
+//     var bishop = piece.cloneNode(true);
+//     bishop.onclick = piece.onclick;
+//     bishop.dataset.type = 'Bishop';
+//     bishop.classList.add(color + '-bishop');
+//
+//     var queen = piece.cloneNode(true);
+//     queen.onclick = piece.onclick;
+//     queen.dataset.type = 'Queen';
+//     queen.classList.add(color + '-queen');
+//
+//     pieceContainer.appendChild(rook);
+//     pieceContainer.appendChild(knight);
+//     pieceContainer.appendChild(bishop);
+//     pieceContainer.appendChild(queen);
+// }
+
+function convertPieceUi(pawnPiece, color, type) {
+    pawnPiece.classList.remove(color + '-pawn');
+    pawnPiece.classList.add(color + '-' + type);
 }

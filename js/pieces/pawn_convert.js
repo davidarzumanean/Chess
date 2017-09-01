@@ -1,7 +1,9 @@
-chess.convertPawn = function(pawn, pawnUi, dropX, dropY) {
+chess.convertPawn = function(pawn, pawnUi, dropCoords) {
     var boardContainer = document.getElementById('boardContainer');
     var color = pawn.color;
     var coords = pawn.coords;
+    var dropX = dropCoords.x;
+    var dropY = dropCoords.y;
 
     var pieceContainer =  document.createElement('div');
     pieceContainer.classList.add('convert-pieces-container');
@@ -27,19 +29,19 @@ chess.convertPawn = function(pawn, pawnUi, dropX, dropY) {
 
         switch(selectedType) {
             case 'Rook':
-                chess.board[dropY][dropX] = new Rook(color, [dropX, dropY]);
+                chess.board[dropY][dropX] = new Rook(color, {x: dropX, y: dropY});
                 convertPieceUi('rook');
                 break;
             case 'Knight':
-                chess.board[dropY][dropX] = new Knight(color, [dropX, dropY]);
+                chess.board[dropY][dropX] = new Knight(color, {x: dropX, y: dropY});
                 convertPieceUi('knight');
                 break;
             case 'Bishop':
-                chess.board[dropY][dropX] = new Bishop(color, [dropX, dropY]);
+                chess.board[dropY][dropX] = new Bishop(color, {x: dropX, y: dropY});
                 convertPieceUi('bishop');
                 break;
             case 'Queen':
-                chess.board[dropY][dropX] = new Queen(color, [dropX, dropY]);
+                chess.board[dropY][dropX] = new Queen(color, {x: dropX, y: dropY});
                 convertPieceUi('queen');
                 break;
         }

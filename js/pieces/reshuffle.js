@@ -30,7 +30,7 @@ chess.reshuffle = function (kingObj, rookObj) {
 
             turn.nextPlayer();
 
-            return {kingPos: kingNewCellId, rookPos: rookNewCellId}
+            return {kingPos: kingNewCellId, rookPos: rookNewCellId};
         }
 
         if (kingCoordXIndex < rookCoordXIndex) {
@@ -40,7 +40,7 @@ chess.reshuffle = function (kingObj, rookObj) {
                 }
             }
 
-            shuffle(2, -2);
+            return shuffle(2, -2);
         }
 
         if (kingCoordXIndex > rookCoordXIndex) {
@@ -50,7 +50,7 @@ chess.reshuffle = function (kingObj, rookObj) {
                 }
             }
 
-            shuffle(-2, 3);
+            return shuffle(-2, 3);
         }
     }
 };
