@@ -5,8 +5,8 @@ function Rook(color, coords) {
     this.validateMove = function (dropCoords) {
         var currentCoordsArr = this.coords;
         var currentCoords = {};
-        currentCoords.x = currentCoordsArr[0];
-        currentCoords.y = currentCoordsArr[1];
+        currentCoords.x = currentCoordsArr.x;
+        currentCoords.y = currentCoordsArr.y;
 
         return validateRookMove(currentCoords, dropCoords);
     }

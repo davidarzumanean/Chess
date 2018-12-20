@@ -4,14 +4,12 @@ function Bishop(color, coords) {
     this.validateMove = function (dropCoords) {
         var currentCoordsArr = this.coords;
         var currentCoords = {};
-        currentCoords.x = currentCoordsArr[0];
-        currentCoords.y = currentCoordsArr[1];
+        currentCoords.x = currentCoordsArr.x;
+        currentCoords.y = currentCoordsArr.y;
 
         return validateBishopMove(currentCoords, dropCoords)
     }
 }
-
-
 
 function validateBishopMove(currentCoords, dropCoords) {
     var xCoordAbsDifference = Math.abs(xCoordNumeric[dropCoords.x] - xCoordNumeric[currentCoords.x]);
@@ -24,9 +22,9 @@ function validateBishopMove(currentCoords, dropCoords) {
         var dropCoordXIndex = xCoordNumeric[dropCoords.x];
         var dropCellContainsPiece = chess.board[dropCoords.y][dropCoords.x];
 
-        function bishopCheckCell() {
+        function checkCell() {
             if (chess.board[yCoord][xCoordAlpha] !== null) {
-                return {success: false};
+                return false;
             }
         };
 
@@ -39,11 +37,14 @@ function validateBishopMove(currentCoords, dropCoords) {
                     yCoord++;
                     xCoordAlpha = xCoordAlphabetic[xCoord];
 
-                    bishopCheckCell();
+                    if(checkCell() === false) {
+                        return {success: false};
+                    }
                 }
                 if (dropCellContainsPiece) {
                     return {success: true, eat: true};
                 }
+
                 return {success: true};
             }
             // Checks left bottom
@@ -53,11 +54,14 @@ function validateBishopMove(currentCoords, dropCoords) {
                     yCoord--;
                     xCoordAlpha = xCoordAlphabetic[xCoord];
 
-                    bishopCheckCell();
+                    if(checkCell() === false) {
+                        return {success: false};
+                    }
                 }
                 if (dropCellContainsPiece) {
                     return {success: true, eat: true};
                 }
+
                 return {success: true};
             }
         }
@@ -71,11 +75,14 @@ function validateBishopMove(currentCoords, dropCoords) {
                     yCoord++;
                     xCoordAlpha = xCoordAlphabetic[xCoord];
 
-                    bishopCheckCell();
+                    if(checkCell() === false) {
+                        return {success: false};
+                    }
                 }
                 if (dropCellContainsPiece) {
                     return {success: true, eat: true};
                 }
+
                 return {success: true};
             }
 
@@ -86,11 +93,14 @@ function validateBishopMove(currentCoords, dropCoords) {
                     yCoord--;
                     xCoordAlpha = xCoordAlphabetic[xCoord];
 
-                    bishopCheckCell();
+                    if(checkCell() === false) {
+                        return {success: false};
+                    }
                 }
                 if (dropCellContainsPiece) {
                     return {success: true, eat: true};
                 }
+
                 return {success: true};
             }
         }

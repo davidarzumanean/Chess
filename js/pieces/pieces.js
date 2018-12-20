@@ -17,43 +17,43 @@ var pieces = {
 
     initPawns: function () {
         for(var cell in chess.board[ROW_1]){
-            chess.board[ROW_1][cell] = new Pawn(WHITEPIECE, [cell ,ROW_1]);
+            chess.board[ROW_1][cell] = new Pawn(WHITEPIECE, {x: cell ,y: ROW_1});
         }
 
-        for(var cell in chess.board[6]){
-            chess.board[ROW_6][cell] = new Pawn(BLACKPIECE, [cell ,ROW_6]);
+        for(var cell in chess.board[ROW_6]){
+            chess.board[ROW_6][cell] = new Pawn(BLACKPIECE, {x: cell ,y: ROW_6});
         }
     },
 
     initRooks: function (){
-        chess.board[ROW_0].a = new Rook(WHITEPIECE, [COL_A ,ROW_0]);
-        chess.board[ROW_0].h = new Rook(WHITEPIECE, [COL_H ,ROW_0]);
-        chess.board[ROW_7].a = new Rook(BLACKPIECE, [COL_A ,ROW_7]);
-        chess.board[ROW_7].h = new Rook(BLACKPIECE, [COL_H ,ROW_7]);
+        chess.board[ROW_0].a = new Rook(WHITEPIECE, {x: COL_A ,y: ROW_0});
+        chess.board[ROW_0].h = new Rook(WHITEPIECE, {x: COL_H ,y: ROW_0});
+        chess.board[ROW_7].a = new Rook(BLACKPIECE, {x: COL_A ,y: ROW_7});
+        chess.board[ROW_7].h = new Rook(BLACKPIECE, {x: COL_H ,y: ROW_7});
     },
 
     initKnights: function (){
-        chess.board[ROW_0].b = new Knight(WHITEPIECE, [COL_B ,ROW_0]);
-        chess.board[ROW_0].g = new Knight(WHITEPIECE, [COL_G ,ROW_0]);
-        chess.board[ROW_7].b = new Knight(BLACKPIECE, [COL_B ,ROW_7]);
-        chess.board[ROW_7].g = new Knight(BLACKPIECE, [COL_G ,ROW_7]);
+        chess.board[ROW_0].b = new Knight(WHITEPIECE, {x: COL_B ,y: ROW_0});
+        chess.board[ROW_0].g = new Knight(WHITEPIECE, {x: COL_G ,y: ROW_0});
+        chess.board[ROW_7].b = new Knight(BLACKPIECE, {x: COL_B ,y: ROW_7});
+        chess.board[ROW_7].g = new Knight(BLACKPIECE, {x: COL_G ,y: ROW_7});
     },
 
     initBishops: function (){
-        chess.board[ROW_0].c = new Bishop(WHITEPIECE, [COL_C ,ROW_0]);
-        chess.board[ROW_0].f = new Bishop(WHITEPIECE, [COL_F ,ROW_0]);
-        chess.board[ROW_7].c = new Bishop(BLACKPIECE, [COL_C ,ROW_7]);
-        chess.board[ROW_7].f = new Bishop(BLACKPIECE, [COL_F ,ROW_7]);
+        chess.board[ROW_0].c = new Bishop(WHITEPIECE, {x: COL_C ,y: ROW_0});
+        chess.board[ROW_0].f = new Bishop(WHITEPIECE, {x: COL_F ,y: ROW_0});
+        chess.board[ROW_7].c = new Bishop(BLACKPIECE, {x: COL_C ,y: ROW_7});
+        chess.board[ROW_7].f = new Bishop(BLACKPIECE, {x: COL_F ,y: ROW_7});
     },
 
     initQueens: function (){
-        chess.board[ROW_0].d = new Queen(WHITEPIECE, [COL_D ,ROW_0]);
-        chess.board[ROW_7].d = new Queen(BLACKPIECE, [COL_D ,ROW_7]);
+        chess.board[ROW_0].d = new Queen(WHITEPIECE, {x: COL_D ,y: ROW_0});
+        chess.board[ROW_7].d = new Queen(BLACKPIECE, {x: COL_D ,y: ROW_7});
     },
 
     initKings: function (){
-        chess.board[ROW_0].e = new King(WHITEPIECE, [COL_E ,ROW_0]);
-        chess.board[ROW_7].e = new King(BLACKPIECE, [COL_E ,ROW_7]);
+        chess.board[ROW_0].e = new King(WHITEPIECE, {x: COL_E ,y: ROW_0});
+        chess.board[ROW_7].e = new King(BLACKPIECE, {x: COL_E ,y: ROW_7});
     },
 
     drawPieces: function() {
@@ -65,7 +65,7 @@ var pieces = {
             for(var cell in chess.board[row]){
                 var pieceObj = chess.board[row][cell];
                 if(pieceObj){
-                    var pos = pieceObj.coords[0] + '-' + pieceObj.coords[1];
+                    var pos = pieceObj.coords.x + '-' + pieceObj.coords.y;
                     var rank = pieceObj.constructor.name.toLowerCase();
                     var color = pieceObj.color;
 

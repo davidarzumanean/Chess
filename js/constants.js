@@ -38,16 +38,3 @@ var WHITEPIECE = 'white',
 var xCoordNumeric = {a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7};
 
 var xCoordAlphabetic = [COL_A, COL_B, COL_C, COL_D, COL_E, COL_F, COL_G, COL_H];
-
-// Positions of both kings
-
-var KINGSPOSITION = {
-    white: {
-        x: COL_E,
-        y: ROW_0
-    },
-    black: {
-        x: COL_E,
-        y: ROW_7
-    }
-};
